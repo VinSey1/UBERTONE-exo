@@ -10,8 +10,8 @@
     <canvas id="graphique" width="800" height="300"></canvas>
     </p>
     <h4>Amplitude : <span id="afficherAmp"></span></h4>
-    <input oninput="afficher()" id="amplitude" type="range"/>
+    <input oninput="afficher()" id="amplitude" type="range" min="1" max="100" step="0.01" value="35"/>
     <h4>Fréquence : <span id="afficherFreq"></span></h4>
-    <input oninput="afficher()" id="frequence" type="range"/>
+    <input oninput="afficher()" id="frequence" type="range" min="10" max="80" step="0.01" value="30"/>
 </body>
 </html>
