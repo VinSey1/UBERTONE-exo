@@ -3,8 +3,15 @@
 <head>
     <meta charset="utf-8">
     <title>Titre de la page</title>
+    <script src="./script.js"></script>
 </head>
-<body>
+<body onload="afficher()">
     <h3>Graphique sinusoïdal</h3>
+    <canvas id="graphique" width="800" height="300"></canvas>
+    </p>
+    <h4>Amplitude : <span id="afficherAmp"></span></h4>
+    <input oninput="afficher()" id="amplitude" type="range"/>
+    <h4>Fréquence : <span id="afficherFreq"></span></h4>
+    <input oninput="afficher()" id="frequence" type="range"/>
 </body>
 </html>
