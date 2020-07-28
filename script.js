@@ -28,7 +28,8 @@ function afficherAxes(contexte) {
     var tmp;
 
     contexte.beginPath();
-    
+    contexte.strokeStyle = "rgb(0,0,0)";
+
     // Création axe X
     contexte.moveTo(0, height/2);
     contexte.lineTo(width, height/2);
@@ -60,12 +61,12 @@ function creationSin(contexte, iterateur) {
 
     contexte.beginPath();
     contexte.lineWidth = 2;
-    contexte.strokeStyle = "rgb(0,0,0)";
+    contexte.strokeStyle = "rgb(255,255,255)";
 
     var x = 0;
     var y = 0;
 
-    while (x <= width) {
+    while(x <= width) {
         y = height/2 + amplitude * Math.sin((x + iterateur)/frequence);
         contexte.lineTo(x, y);
         x++;
