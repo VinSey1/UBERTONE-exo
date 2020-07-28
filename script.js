@@ -1,5 +1,6 @@
 var frequence;
 var amplitude;
+var iterateur = -4;
 
 function afficher() {
     var graphique = document.getElementById("graphique");
@@ -11,8 +12,14 @@ function afficher() {
     document.getElementById("afficherAmp").innerHTML = amplitude;
     document.getElementById("afficherFreq").innerHTML = frequence;
 
+    contexte.clearRect(0, 0, 1000, 500);
+
     afficherAxes(contexte);
     contexte.save();
+
+    creationSin(contexte, iterateur);
+
+    iterateur += 4;
 }
 
 function afficherAxes(contexte) {
@@ -44,5 +51,25 @@ function afficherAxes(contexte) {
         contexte.lineTo(width/2 - 5, tmp);
     }
     
+    contexte.stroke();
+}
+
+function creationSin(contexte, iterateur) {
+    var width = contexte.canvas.width;
+    var height = contexte.canvas.height;
+
+    contexte.beginPath();
+    contexte.lineWidth = 2;
+    contexte.strokeStyle = "rgb(0,0,0)";
+
+    var x = 0;
+    var y = 0;
+
+    while (x <= width) {
+        y = height/2 + amplitude * Math.sin((x + iterateur)/frequence);
+        contexte.lineTo(x, y);
+        x++;
+    }
+
     contexte.stroke();
 }
