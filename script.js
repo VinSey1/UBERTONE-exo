@@ -1,7 +1,12 @@
-var frequence;
-var amplitude;
-var iterateur = -4;
 
+// Fréquence de la courbe
+var frequence;
+// Amplitude de la courbe
+var amplitude;
+
+/**
+ * Fonction d'appel pour créer le graphique
+ */
 function afficher() {
     var graphique = document.getElementById("graphique");
     var contexte = graphique.getContext("2d");
@@ -17,11 +22,13 @@ function afficher() {
     afficherAxes(contexte);
     contexte.save();
 
-    creationSin(contexte, iterateur);
-
-    iterateur += 4;
+    creationSin(contexte);
 }
 
+/**
+ * Fonction créatrice des axes du graphique
+ * @param {context} contexte Contexte du graphique à modifier
+ */
 function afficherAxes(contexte) {
     var width = contexte.canvas.width;
     var height = contexte.canvas.height;
@@ -35,7 +42,7 @@ function afficherAxes(contexte) {
     contexte.lineTo(width, height/2);
 
     // Graduation axe X
-    for(tmp = 0; tmp < width; tmp += 10){
+    for(tmp = 0; tmp < width; tmp += 30){
         contexte.moveTo(tmp, height/2);
         contexte.lineTo(tmp, height/2 + 5);
         contexte.lineTo(tmp, height/2 - 5);
@@ -46,7 +53,7 @@ function afficherAxes(contexte) {
     contexte.lineTo(width/2, height);
 
     // Graduation axe Y
-    for(tmp = 0; tmp < height; tmp += 10){
+    for(tmp = 0; tmp < height; tmp += 30){
         contexte.moveTo(width/2, tmp);
         contexte.lineTo(width/2 + 5, tmp);
         contexte.lineTo(width/2 - 5, tmp);
@@ -55,7 +62,11 @@ function afficherAxes(contexte) {
     contexte.stroke();
 }
 
-function creationSin(contexte, iterateur) {
+/**
+ * Fonction de création de la courbe sinusoïdale sur le graphique
+ * @param {context} contexte Contexte du graphique à modifier
+ */
+function creationSin(contexte) {
     var width = contexte.canvas.width;
     var height = contexte.canvas.height;
 
@@ -66,8 +77,9 @@ function creationSin(contexte, iterateur) {
     var x = 0;
     var y = 0;
 
+    // Création de la courbe sinusoïdale
     while(x <= width) {
-        y = height/2 + amplitude * Math.sin((x + iterateur)/frequence);
+        y = height/2 + amplitude * Math.sin(x/frequence);
         contexte.lineTo(x, y);
         x++;
     }
