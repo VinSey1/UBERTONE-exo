@@ -1,11 +1,10 @@
-
-// Fréquence de la courbe
+// Fréquence de la courbe - integer
 var frequence;
-// Amplitude de la courbe
+// Amplitude de la courbe - integer
 var amplitude;
 
 /**
- * Fonction d'appel pour créer le graphique
+ * Fonction d'appel pour créer le graphique et le mettre à jour
  */
 function afficher() {
     var graphique = document.getElementById("graphique");
